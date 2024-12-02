@@ -5,7 +5,7 @@ def part1(levels):
     ans = 0
 
     for level in levels:
-        if _is_safe(level):
+        if _is_level_safe(level):
             ans += 1
 
     return ans
@@ -15,14 +15,14 @@ def part2(levels):
     ans = 0
 
     for level in levels:
-        if _is_safe(level):
+        if _is_level_safe(level):
             ans += 1
             continue
 
         is_level_safe = False
         for i in range(len(level)):
             modified_level = level[:i] + level[i + 1:]
-            if _is_safe(modified_level):
+            if _is_level_safe(modified_level):
                 is_level_safe = True
                 break
 
@@ -32,7 +32,7 @@ def part2(levels):
     return ans
 
 
-def _is_safe(level):
+def _is_level_safe(level):
     is_increasing = level[-1] > level[0]
     for i in range(1, len(level)):
         if not _check_pair_safety(level, is_increasing, i, i - 1):
