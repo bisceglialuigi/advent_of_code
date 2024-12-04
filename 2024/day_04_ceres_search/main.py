@@ -52,7 +52,6 @@ def part2(grid):
             if grid[x][y] != 'A':
                 return False
 
-
             # Pattern 1: M . S
             #            . A .
             #            M . S
