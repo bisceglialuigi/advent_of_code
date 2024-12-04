@@ -48,31 +48,36 @@ def part2(grid):
             top_right1, top_right2 = x-1, y+1
             bottom_left1, bottom_left2 = x+1, y-1
             bottom_right1, bottom_right2 = x+1, y+1
+
+            if grid[x][y] != 'A':
+                return False
+
+
             # Pattern 1: M . S
             #            . A .
             #            M . S
-            if grid[top_left1][top_left2] == 'M' and grid[x][y] == 'A' and grid[top_right1][top_right2] == 'S' and \
+            if grid[top_left1][top_left2] == 'M' and grid[top_right1][top_right2] == 'S' and \
                grid[bottom_left1][bottom_left2] == 'M' and grid[bottom_right1][bottom_right2] == 'S':
                 return True
 
             # Pattern 2: M . M
             #            . A .
             #            S . S
-            if grid[top_left1][top_left2] == 'M' and grid[x][y] == 'A' and grid[top_right1][top_right2] == 'M' and \
+            if grid[top_left1][top_left2] == 'M' and grid[top_right1][top_right2] == 'M' and \
                grid[bottom_left1][bottom_left2] == 'S' and grid[bottom_right1][bottom_right2] == 'S':
                 return True
 
             # Pattern 3: S . M
             #            . A .
             #            S . M
-            if grid[top_left1][top_left2] == 'S' and grid[x][y] == 'A' and grid[top_right1][top_right2] == 'M' and \
+            if grid[top_left1][top_left2] == 'S' and grid[top_right1][top_right2] == 'M' and \
                grid[bottom_left1][bottom_left2] == 'S' and grid[bottom_right1][bottom_right2] == 'M':
                 return True
 
             # Pattern 4: S . S
             #            . A .
             #            M . M
-            if grid[top_left1][top_left2] == 'S' and grid[x][y] == 'A' and grid[top_right1][top_right2] == 'S' and \
+            if grid[top_left1][top_left2] == 'S' and grid[top_right1][top_right2] == 'S' and \
                grid[bottom_left1][bottom_left2] == 'M' and grid[bottom_right1][bottom_right2] == 'M':
                 return True
 
