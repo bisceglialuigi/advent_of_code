@@ -80,7 +80,6 @@ def part2(grid):
                grid[bottom_left1][bottom_left2] == 'M' and grid[bottom_right1][bottom_right2] == 'M':
                 return True
 
-
         except IndexError:
             return False
 
